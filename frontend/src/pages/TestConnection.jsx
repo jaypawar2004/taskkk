@@ -1,14 +1,28 @@
-import { useEffect } from "react";
+import React, { useEffect } from 'react';
+// Example using fetch (React or Vanilla JS)
+fetch('http://localhost:5000/api/test')
+  .then(response => response.json())
+  .then(data => {
+    console.log(data); // Expected: { message: "Backend is connected successfully!" }
+  })
+  .catch(error => {
+    console.error('Error:', error); // Handle connection issues
+  });
 
-const TestConnection = () => {
+
+const App = () => {
   useEffect(() => {
-    fetch("http://localhost:5000/api/test")
-      .then((res) => res.json())
-      .then((data) => console.log("Backend Response:", data))
-      .catch((err) => console.error("Error connecting to backend:", err));
+    fetch('http://localhost:5000/api/test')
+      .then(response => response.json())
+      .then(data => {
+        console.log(data); // Check backend response in console
+      })
+      .catch(error => {
+        console.error('Error:', error); // If there's an error (e.g., backend not reachable)
+      });
   }, []);
 
-  return <div>Check the console for backend response!</div>;
-};
+  return <div className="App">Check the console for backend response!</div>;
+}
 
-export default TestConnection;
+export default App;

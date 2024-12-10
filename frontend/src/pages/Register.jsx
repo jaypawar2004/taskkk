@@ -16,8 +16,8 @@ const Register = () => {
       alert('Registration failed!');
     }
     
+    
   };
-console.log(form)
   return (
     <form onSubmit={handleSubmit} className="max-w-md mx-auto mt-20">
       <h2 className="text-2xl font-bold mb-4">Register</h2>
