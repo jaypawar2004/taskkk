@@ -1,13 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem('token');
+    navigate('/login');
+  };
+
   return (
-    <nav className="bg-blue-600 p-4 text-white flex justify-between">
-      <h1 className="text-xl font-bold">Task Manager</h1>
+    <nav className="bg-blue-600 text-white p-4 flex justify-between">
+      <Link to="/" className="font-bold text-xl">Task Manager</Link>
       <div>
-        <Link to="/dashboard" className="mr-4">Dashboard</Link>
-        <Link to="/login">Logout</Link>
+        <Link to="/tasks" className="mr-4">Tasks</Link>
+        <button onClick={handleLogout} className="bg-red-500 px-3 py-1 rounded">Logout</button>
       </div>
     </nav>
   );
