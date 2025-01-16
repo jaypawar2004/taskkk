@@ -62,7 +62,7 @@ exports.deleteUser = async (req, res) => {
 
     if (!user) return res.status(404).json({ message: 'User not found' });
 
-    // Delete tasks assigned to this user
+    // Delete tasks assigned to this user...
     await Task.deleteMany({ assignedTo: id });
 
     res.status(200).json({ message: 'User deleted successfully' });
