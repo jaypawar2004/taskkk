@@ -14,7 +14,7 @@ exports.getAllUsers = async (req, res) => {
   }
 };
 
-// Get a single user's details
+// Get a single user's details...
 exports.getUserDetails = async (req, res) => {
   try {
     const user = await User.findById(req.params.id).select('-password');
